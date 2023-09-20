@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# by:proxlu
+
+echo -e '  \e[32mInstalados/Installed:'
+grep "install " /var/log/dpkg.log | sort -k1,1M -k2,2 -n -r | awk '{print $4}'
+echo
+echo -e '     \e[31mRemovidos/Removed:'
+grep "remove " /var/log/dpkg.log | sort -k1,1M -k2,2 -n -r | awk '{print $4}'
+
